@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LOGIN.SignUpActivity">
+
+    <View
+        android:id="@+id/signVerticalView"
+        android:layout_width="wrap_content"
+        android:layout_height="0.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <View
+        android:id="@+id/signBackgroundView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="#596ace"
+        app:layout_constraintBottom_toTopOf="@+id/signVerticalView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signIdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="아이디"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextView" />
+
+    <EditText
+        android:id="@+id/signIdEditTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:hint="아이디를 입력해주세요"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIdText" />
+
+    <TextView
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:id="@+id/signPasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="비밀번호"
+        app:layout_constraintStart_toStartOf="@+id/signIdText"
+        app:layout_constraintTop_toBottomOf="@+id/signIdEditTextView" />
+
+    <EditText
+        android:id="@+id/signPasswordEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:hint="비밀번호를 입력해주세요"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPasswordText" />
+
+    <TextView
+        android:id="@+id/signPasswordCheckText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="비밀번호 확인"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/signPasswordText"
+        app:layout_constraintTop_toBottomOf="@+id/signPasswordEditText" />
+
+    <EditText
+        android:id="@+id/signPasswordCheckEditTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPasswordCheckText" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="회원가입"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPasswordCheckEditTextView" />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="이메일"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signVerticalView" />
+
+    <EditText
+        android:id="@+id/emailEditTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:hint="이메일을 입력해주세요. (비밀번호 찾기시필요)"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/emailCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="이메일 형식이 다릅니다."
+        android:textColor="#ff0000"
+        app:layout_constraintBottom_toBottomOf="@+id/emailText"
+        app:layout_constraintStart_toEndOf="@+id/emailText"
+        app:layout_constraintTop_toTopOf="@+id/emailText" />
+
+    <TextView
+        android:visibility="invisible"
+        android:textColor="#ff0000"
+        android:id="@+id/idCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="아이디를 입력해주세요."
+        app:layout_constraintBottom_toBottomOf="@+id/signIdText"
+        app:layout_constraintStart_toEndOf="@+id/signIdText"
+        app:layout_constraintTop_toTopOf="@+id/signIdText" />
+
+    <TextView
+        android:visibility="invisible"
+        android:textColor="#ff0000"
+        android:id="@+id/passwordCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="비밀번호를 입력해주세요."
+        app:layout_constraintBottom_toBottomOf="@+id/signPasswordText"
+        app:layout_constraintStart_toEndOf="@+id/signPasswordText"
+        app:layout_constraintTop_toTopOf="@+id/signPasswordText" />
+
+    <TextView
+        android:visibility="invisible"
+        android:textColor="#ff0000"
+        android:id="@+id/passwordCheckWrongTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="입력된 비밀번호와 틀립니다."
+        app:layout_constraintBottom_toBottomOf="@+id/signPasswordCheckText"
+        app:layout_constraintStart_toEndOf="@+id/signPasswordCheckText"
+        app:layout_constraintTop_toTopOf="@+id/signPasswordCheckText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
