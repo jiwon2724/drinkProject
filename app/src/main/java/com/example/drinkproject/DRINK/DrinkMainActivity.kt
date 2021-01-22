@@ -36,7 +36,7 @@ class DrinkMainActivity : AppCompatActivity() {
         topViewpager.adapter = TopViewpagerAdapter(this, imgArrayList)
         topViewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        /** Viewpager 넘김 처리 **/
+        /** Viewpager 넘김 처리  **/
         topViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
