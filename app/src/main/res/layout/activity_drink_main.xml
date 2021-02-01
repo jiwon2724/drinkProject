@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/topViewpager"
+                android:id="@+id/bannerViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="45dp"
@@ -32,104 +32,108 @@
                 android:id="@+id/drinkChooseTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:text="주종을 선택해주세요"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topViewpager" />
+                app:layout_constraintTop_toBottomOf="@+id/bannerViewPager" />
 
-            <Button
-                android:id="@+id/button"
+            <ImageButton
+                android:id="@+id/sojuButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/test_circle"
-                app:layout_constraintEnd_toStartOf="@+id/button2"
+                android:background="@drawable/circle_shadow"
+                app:layout_constraintEnd_toStartOf="@+id/beerButton"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/drinkChooseTextView" />
 
-            <Button
-                android:id="@+id/button2"
+            <ImageButton
+                android:id="@+id/beerButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/test_circle"
-                app:layout_constraintEnd_toStartOf="@+id/button4"
+                android:background="@drawable/circle_shadow"
+                app:layout_constraintEnd_toStartOf="@+id/liquorButton"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button"
-                app:layout_constraintTop_toTopOf="@+id/button" />
+                app:layout_constraintStart_toEndOf="@+id/sojuButton"
+                app:layout_constraintTop_toTopOf="@+id/sojuButton" />
 
-            <Button
-                android:id="@+id/button3"
+            <ImageButton
+                android:id="@+id/koreanTraditionalButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/test_circle"
+                android:background="@drawable/circle_shadow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button4"
-                app:layout_constraintTop_toTopOf="@+id/button" />
+                app:layout_constraintStart_toEndOf="@+id/liquorButton"
+                app:layout_constraintTop_toTopOf="@+id/sojuButton" />
 
-            <Button
-                android:id="@+id/button4"
+            <ImageButton
+                android:id="@+id/liquorButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/test_circle"
-                app:layout_constraintEnd_toStartOf="@+id/button3"
+                android:background="@drawable/circle_shadow"
+                app:layout_constraintEnd_toStartOf="@+id/koreanTraditionalButton"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="@+id/button" />
+                app:layout_constraintStart_toEndOf="@+id/beerButton"
+                app:layout_constraintTop_toTopOf="@+id/sojuButton" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:textColor="#000000"
+                android:id="@+id/sojuText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="소주"
-                app:layout_constraintEnd_toEndOf="@+id/button"
-                app:layout_constraintStart_toStartOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintEnd_toEndOf="@+id/sojuButton"
+                app:layout_constraintStart_toStartOf="@+id/sojuButton"
+                app:layout_constraintTop_toBottomOf="@+id/sojuButton" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:textColor="#000000"
+                android:id="@+id/beerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="맥주"
-                app:layout_constraintEnd_toEndOf="@+id/button2"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+                app:layout_constraintEnd_toEndOf="@+id/beerButton"
+                app:layout_constraintStart_toStartOf="@+id/beerButton"
+                app:layout_constraintTop_toBottomOf="@+id/beerButton" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:textColor="#000000"
+                android:id="@+id/liquorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="양주"
-                app:layout_constraintEnd_toEndOf="@+id/button4"
-                app:layout_constraintStart_toStartOf="@+id/button4"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintEnd_toEndOf="@+id/liquorButton"
+                app:layout_constraintStart_toStartOf="@+id/liquorButton"
+                app:layout_constraintTop_toBottomOf="@+id/liquorButton" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:textColor="#000000"
+                android:id="@+id/koreanTraditionalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="막걸리"
-                app:layout_constraintEnd_toEndOf="@+id/button3"
-                app:layout_constraintStart_toStartOf="@+id/button3"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                app:layout_constraintEnd_toEndOf="@+id/koreanTraditionalButton"
+                app:layout_constraintStart_toStartOf="@+id/koreanTraditionalButton"
+                app:layout_constraintTop_toBottomOf="@+id/koreanTraditionalButton" />
 
             <View
                 android:id="@+id/view6"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="20dp"
-                android:background="#777777"
+                android:background="#E1E2EB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/beerText" />
 
             <TextView
                 android:textSize="20dp"
@@ -144,11 +148,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/view6" />
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/view7"
+                android:id="@+id/recommendViewPager"
                 android:layout_width="0dp"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/drinkRecommendTextView" />
@@ -157,23 +160,65 @@
                 android:id="@+id/drinkRankTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="이번달 주장"
+                android:layout_marginTop="30dp"
+                android:text="이번달 꿀조합"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view7" />
+                app:layout_constraintTop_toBottomOf="@+id/recommendViewPager" />
 
-            <View
-                android:background="@color/colorAccent"
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view8"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="500dp"
-                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/drinkRankTextView" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:background="@drawable/soju"
+                app:layout_constraintBottom_toBottomOf="@+id/sojuButton"
+                app:layout_constraintEnd_toEndOf="@+id/sojuButton"
+                app:layout_constraintStart_toStartOf="@+id/sojuButton"
+                app:layout_constraintTop_toTopOf="@+id/sojuButton" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/beerButton"
+                app:layout_constraintEnd_toEndOf="@+id/beerButton"
+                app:layout_constraintStart_toStartOf="@+id/beerButton"
+                app:layout_constraintTop_toTopOf="@+id/beerButton"
+                app:srcCompat="@drawable/beer" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/herbal_liquor"
+                app:layout_constraintBottom_toBottomOf="@+id/liquorButton"
+                app:layout_constraintEnd_toEndOf="@+id/liquorButton"
+                app:layout_constraintStart_toStartOf="@+id/liquorButton"
+                app:layout_constraintTop_toTopOf="@+id/liquorButton" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                app:layout_constraintBottom_toBottomOf="@+id/koreanTraditionalButton"
+                app:layout_constraintEnd_toEndOf="@+id/koreanTraditionalButton"
+                app:layout_constraintStart_toStartOf="@+id/koreanTraditionalButton"
+                app:layout_constraintTop_toTopOf="@+id/koreanTraditionalButton"
+                app:srcCompat="@drawable/plastic_bottle" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

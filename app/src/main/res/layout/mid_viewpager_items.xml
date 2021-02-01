@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:background="@drawable/radius"
+        android:id="@+id/backgroundView"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/drinkImageView"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundView"
+        app:layout_constraintStart_toStartOf="@+id/backgroundView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundView" />
+
+    <TextView
+        android:id="@+id/drinkTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="술이름"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/drinkAlcolImageView"
+        app:layout_constraintStart_toStartOf="@+id/backgroundView"
+        app:layout_constraintTop_toBottomOf="@+id/drinkImageView" />
+
+    <ImageView
+        android:id="@+id/drinkStarImageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/star"
+        app:layout_constraintStart_toStartOf="@+id/drinkTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/drinkTitleTextView" />
+
+    <TextView
+        android:id="@+id/drinkRatingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="평점"
+        android:textColor="#000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkStarImageView"
+        app:layout_constraintStart_toEndOf="@+id/drinkStarImageView"
+        app:layout_constraintTop_toTopOf="@+id/drinkStarImageView" />
+
+    <ImageView
+        android:id="@+id/drinkAlcolImageView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/drinkAlcolTextView"
+        app:layout_constraintTop_toTopOf="@+id/drinkTitleTextView"
+        app:srcCompat="@drawable/drunk" />
+
+    <ImageView
+        android:id="@+id/drinkLikeImageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkStarImageView"
+        app:layout_constraintEnd_toEndOf="@+id/drinkAlcolImageView"
+        app:layout_constraintStart_toStartOf="@+id/drinkAlcolImageView"
+        app:layout_constraintTop_toTopOf="@+id/drinkStarImageView"
+        app:srcCompat="@drawable/heart" />
+
+    <TextView
+        android:id="@+id/drinkAlcolTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="도수"
+        android:textColor="#000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkAlcolImageView"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundView"
+        app:layout_constraintTop_toTopOf="@+id/drinkAlcolImageView" />
+
+    <TextView
+        android:id="@+id/drinkLikeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="좋아요"
+        android:textColor="#000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkLikeImageView"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundView"
+        app:layout_constraintStart_toStartOf="@+id/drinkAlcolTextView"
+        app:layout_constraintTop_toTopOf="@+id/drinkLikeImageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
