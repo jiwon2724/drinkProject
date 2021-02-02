@@ -169,9 +169,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/recommendViewPager" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/view8"
+                android:id="@+id/combinationRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="500dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/drinkRankTextView" />

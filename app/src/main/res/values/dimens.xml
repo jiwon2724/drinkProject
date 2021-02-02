@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="pageMargin">15dp</dimen>
+    <dimen name="pagerWidth">300dp</dimen>
+</resources>
+
