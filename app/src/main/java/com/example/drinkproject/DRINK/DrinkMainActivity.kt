@@ -1,5 +1,6 @@
 package com.example.drinkproject.DRINK
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +9,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.StyleSpan
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +24,8 @@ import kotlinx.android.synthetic.main.activity_drink_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DrinkMainActivity : AppCompatActivity() {
+class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
+
     /** 배너 이미지 리스트 **/
     val bannerImageList = arrayListOf(
         R.drawable.top_viewpager_firstt,
@@ -87,6 +90,11 @@ class DrinkMainActivity : AppCompatActivity() {
     }
 
     fun init(){
+        sojuButton.setOnClickListener(this)
+        beerButton.setOnClickListener(this)
+        liquorButton.setOnClickListener(this)
+        koreanTraditionalButton.setOnClickListener(this)
+
         /** 추천 술 임시 리스트 **/
         drinkIamgeList.add(recommend(R.drawable.stella, "스텔라", 4.9, 5.0, 38472))
         drinkIamgeList.add(recommend(R.drawable.desperados, "데스페라도스", 4.1, 5.9, 39))
@@ -129,5 +137,21 @@ class DrinkMainActivity : AppCompatActivity() {
         drinkChooseTextView.text = ssb(drinkChooseTextView.text.toString(), 0, 3)
         drinkRecommendTextView.text = ssb(drinkRecommendTextView.text.toString(), 0, 5)
         drinkRankTextView.text = ssb(drinkRankTextView.text.toString(), 0, 3)
+    }
+
+    /** 버튼 클릭 리스너 **/
+    override fun onClick(view: View?) {
+        when(view){
+            sojuButton -> drinkListIntent("soju")
+            beerButton -> drinkListIntent("beer")
+            liquorButton -> drinkListIntent("liquor")
+            koreanTraditionalButton -> drinkListIntent("makgeolli")
+        }
+    }
+
+    fun drinkListIntent(drinkType : String?){
+        val intent = Intent(this, DrinkListActivity::class.java)
+        intent.putExtra("drinkType", drinkType)
+        startActivity(intent)
     }
 }
