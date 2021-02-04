@@ -75,17 +75,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tabLayout2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/gridButton"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/hamburger"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintBottom_toBottomOf="@+id/listButton"
+        app:layout_constraintEnd_toStartOf="@+id/listButton"
+        app:layout_constraintTop_toTopOf="@+id/listButton" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/listButton"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginTop="15dp"
