@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.drinkproject.MainActivity
+import com.example.drinkproject.DRINK.DrinkMainActivity
 import com.example.drinkproject.R
 import com.example.drinkproject.RESOURCE.Constant
 import com.example.drinkproject.RESOURCE.DTO.SignDTO
@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<SignDTO>, response: Response<SignDTO>) {
                     when(response.body()!!.resultNum){
                         "200" -> {
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, DrinkMainActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
