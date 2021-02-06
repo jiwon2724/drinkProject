@@ -7,4 +7,8 @@
         <item name="colorAccent">#596ace</item>
     </style>
 
+    <style name="CustomRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#EAEAEA</item>
+        <item name="colorControlActivated">#FFE400</item>
+    </style>
 </resources>
