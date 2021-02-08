@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_drink_main.*
 class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.OnTabSelectedListener{
 
     var drinkType : String = ""
-    val arrayList : ArrayList<String> = arrayListOf("asd", "sss", "123", "123", "123")
+    val arrayList : ArrayList<String> = arrayListOf("asd", "sss", "123", "123", "123") // recyclerview test
     var adapter = DrinkListAdapter(this, arrayList, 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {

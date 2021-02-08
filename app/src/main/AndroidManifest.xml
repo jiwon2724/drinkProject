@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DRINK.DrinkInfoActicity"></activity>
+        <activity android:name=".DRINK.DrinkCommentListActivity"></activity>
+        <activity android:name=".DRINK.DrinkCommentEditActivity" />
+        <activity android:name=".DRINK.DrinkInfoActicity" />
         <activity android:name=".SPLASH.SplashActivity" />
         <activity android:name=".DRINK.DrinkListActivity" />
         <activity android:name=".LOGIN.LoginActivity" />

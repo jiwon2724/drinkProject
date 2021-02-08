@@ -5,5 +5,5 @@ data class recommend (
     val title : String?,
     val rating : Double?,
     val alchol : Double?,
-    val heart : Int
+    val heart : Int?
 )
