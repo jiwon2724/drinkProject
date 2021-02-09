@@ -11,4 +11,22 @@
         <item name="colorControlNormal">#EAEAEA</item>
         <item name="colorControlActivated">#FFE400</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.Translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#596ace</item>
+        <item name="colorAccent">#596ace</item>
+    </style>
 </resources>

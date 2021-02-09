@@ -20,6 +20,8 @@ import com.example.drinkproject.RESOURCE.ADAPTER.RecommendViewpagerAdapter
 import com.example.drinkproject.RESOURCE.ADAPTER.TopViewpagerAdapter
 import com.example.drinkproject.RESOURCE.LISTCLASS.combination
 import com.example.drinkproject.RESOURCE.LISTCLASS.recommend
+import com.example.drinkproject.RESOURCE.SpannableString
+import com.example.drinkproject.USER.UserInfoActivity
 import kotlinx.android.synthetic.main.activity_drink_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -41,8 +43,13 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink_main)
-
         init()
+
+        drinkChooseTextView.setOnClickListener {
+            val intent = Intent(this, UserInfoActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.xml.slide_left, R.xml.no_change)
+        }
 
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // 페이지 간격 (Margin)
         val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pagerWidth)
@@ -80,13 +87,6 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
                 handler.postDelayed(headerRunnable, 3000)
             }
         })
-    }
-
-    fun ssb(str: String, start: Int, end: Int) : SpannableStringBuilder {
-        val ssb = SpannableStringBuilder(str)
-        ssb.setSpan(AbsoluteSizeSpan(25, true), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        ssb.setSpan(StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        return ssb
     }
 
     fun init(){
@@ -134,9 +134,10 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
                 91)
         )
 
-        drinkChooseTextView.text = ssb(drinkChooseTextView.text.toString(), 0, 3)
-        drinkRecommendTextView.text = ssb(drinkRecommendTextView.text.toString(), 0, 5)
-        drinkRankTextView.text = ssb(drinkRankTextView.text.toString(), 0, 3)
+        drinkChooseTextView.text = SpannableString(size = 25, str = drinkChooseTextView.text.toString(), start = 0, end = 3).ssb()
+        drinkRecommendTextView.text = SpannableString(size = 25, str = drinkRecommendTextView.text.toString(), start = 0, end = 5).ssb()
+        drinkRankTextView.text = SpannableString(size = 25, str = drinkRankTextView.text.toString(), start = 0, end = 3).ssb()
+
     }
 
     /** 버튼 클릭 리스너 **/
