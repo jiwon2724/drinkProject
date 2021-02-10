@@ -26,6 +26,6 @@ class UserInfoActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         finish()
-        overridePendingTransition(R.xml.slide_right, R.xml.no_change)
+        overridePendingTransition(R.xml.no_change,R.xml.slide_right)
     }
 }
