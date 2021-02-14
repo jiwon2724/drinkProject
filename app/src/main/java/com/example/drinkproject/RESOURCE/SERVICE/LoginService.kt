@@ -11,5 +11,4 @@ interface LoginService {
 
     @POST(Constant.HTTP_API_POST_LOGIN)
     fun login(@Body body : Map<String, String>) : Call<SignDTO>
-
 }

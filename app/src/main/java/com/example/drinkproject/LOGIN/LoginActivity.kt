@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
         server.login(loginUserInfo)
             .enqueue(object : Callback<SignDTO>{
                 override fun onResponse(call: Call<SignDTO>, response: Response<SignDTO>) {
-                    when(response.body()!!.resultNum){
+                    when(response.body()!!.httpCode){
                         "200" -> {
                             val intent = Intent(this@LoginActivity, DrinkMainActivity::class.java)
                             startActivity(intent)
