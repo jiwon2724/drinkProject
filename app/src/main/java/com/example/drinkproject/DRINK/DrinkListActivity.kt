@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drinkproject.R
 import com.example.drinkproject.RESOURCE.ADAPTER.DrinkListAdapter
+import com.example.drinkproject.databinding.ActivityDrinkListBinding
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_drink_list.*
 import kotlinx.android.synthetic.main.activity_drink_main.*
 
-class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.OnTabSelectedListener{
+class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.OnTabSelectedListener {
+
+    lateinit var binding : ActivityDrinkListBinding
 
     var drinkType : String = ""
     val arrayList : ArrayList<String> = arrayListOf("asd", "sss", "123", "123", "123") // recyclerview test
@@ -21,12 +24,13 @@ class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.O
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drink_list)
+        binding = ActivityDrinkListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         init()
-        goBackImageButton.setOnClickListener { finish() }
+        binding.goBackImageButton.setOnClickListener { finish() }
 
         /** 임시 DrinkInfoActivity테스트  원래는 어댑터 아이템 클릭시로 이동 **/
-        sortTextView.setOnClickListener {
+        binding.sortTextView.setOnClickListener {
             val intent = Intent(this, DrinkInfoActicity::class.java)
             startActivity(intent)
         }
@@ -42,12 +46,12 @@ class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.O
             false -> finish() // 들어온 값이 없을때 처리
         }
 
-        dirnkTabLayout.addOnTabSelectedListener(this)
-        gridButton.setOnClickListener(this)
-        listButton.setOnClickListener(this)
+        binding.dirnkTabLayout.addOnTabSelectedListener(this)
+        binding.gridButton.setOnClickListener(this)
+        binding.listButton.setOnClickListener(this)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
     }
 
     /** DirnkMainActivity에서 넘어온 주류로 탭 선택 **/
@@ -63,18 +67,18 @@ class DrinkListActivity : AppCompatActivity(), View.OnClickListener, TabLayout.O
     override fun onClick(view: View?) {
         val listArrayList : ArrayList<String> = arrayListOf("asd", "sss", "123", "123", "123")
         when(view){
-            gridButton -> {
+            binding.gridButton -> {
                 arrayList.clear()
                 val adapter = DrinkListAdapter(this, listArrayList, 0)
-                recyclerView.layoutManager = GridLayoutManager(this, 2)
-                recyclerView.adapter = adapter
+                binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+                binding.recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
             }
-            listButton -> {
+            binding.listButton -> {
                 arrayList.clear()
                 val adapter = DrinkListAdapter(this, listArrayList, 1)
-                recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.adapter = adapter
+                binding.recyclerView.layoutManager = LinearLayoutManager(this)
+                binding.recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
             }
         }

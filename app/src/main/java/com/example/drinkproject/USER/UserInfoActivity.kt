@@ -9,6 +9,8 @@ import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drinkproject.R
 import com.example.drinkproject.RESOURCE.ADAPTER.UserInfoAdatper
+import com.example.drinkproject.RESOURCE.App
+import com.example.drinkproject.RESOURCE.Constant
 import com.example.drinkproject.RESOURCE.ItemClickListener
 import kotlinx.android.synthetic.main.activity_user_info.*
 
@@ -47,6 +49,10 @@ class UserInfoActivity : AppCompatActivity() {
         params.width = (width*.75).toInt()
         params.y = -(height/2)
         this.window.attributes = params
+
+        userIdTextView.text = App.prefs.getStringData(Constant.userId)
+
+
     }
 
     override fun onBackPressed() {

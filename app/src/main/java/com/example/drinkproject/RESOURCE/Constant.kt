@@ -5,7 +5,9 @@ class Constant {
         const val BASE_URL = "http://172.30.1.16:8080/"
 
         /** SharedPreferences **/
-
+        const val autoLogin ="autoLogin" // 자동로그인
+        const val userId = "userId" // 유저 아이디
+        const val userPass ="userPass" // 유저 비밀번호
 
 
         /** HTTP API 리스트 **/

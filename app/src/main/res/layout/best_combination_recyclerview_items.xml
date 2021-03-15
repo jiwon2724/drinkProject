@@ -48,8 +48,8 @@
         android:text="뽕따 + 소주"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/userIdTextView"
-        app:layout_constraintTop_toBottomOf="@+id/userIdTextView" />
+        app:layout_constraintStart_toStartOf="@+id/helloTextView"
+        app:layout_constraintTop_toBottomOf="@+id/helloTextView" />
 
     <TextView
         android:id="@+id/menuDescriptionTextView"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/menuTitleTextView" />
 
     <TextView
-        android:id="@+id/userIdTextView"
+        android:id="@+id/helloTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

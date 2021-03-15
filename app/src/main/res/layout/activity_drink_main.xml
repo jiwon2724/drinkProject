@@ -23,10 +23,10 @@
                 android:id="@+id/bannerViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/userMenuButton" />
 
             <TextView
                 android:id="@+id/drinkChooseTextView"
@@ -42,8 +42,8 @@
 
             <ImageButton
                 android:id="@+id/sojuButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/circle_shadow"
                 app:layout_constraintEnd_toStartOf="@+id/beerButton"
@@ -53,8 +53,8 @@
 
             <ImageButton
                 android:id="@+id/beerButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@drawable/circle_shadow"
                 app:layout_constraintEnd_toStartOf="@+id/liquorButton"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -63,8 +63,8 @@
 
             <ImageButton
                 android:id="@+id/koreanTraditionalButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@drawable/circle_shadow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -73,8 +73,8 @@
 
             <ImageButton
                 android:id="@+id/liquorButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@drawable/circle_shadow"
                 app:layout_constraintEnd_toStartOf="@+id/koreanTraditionalButton"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -82,6 +82,7 @@
                 app:layout_constraintTop_toTopOf="@+id/sojuButton" />
 
             <TextView
+                android:textStyle="bold"
                 android:textColor="#000000"
                 android:id="@+id/sojuText"
                 android:layout_width="wrap_content"
@@ -93,6 +94,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/sojuButton" />
 
             <TextView
+                android:textStyle="bold"
                 android:textColor="#000000"
                 android:id="@+id/beerText"
                 android:layout_width="wrap_content"
@@ -104,6 +106,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/beerButton" />
 
             <TextView
+                android:textStyle="bold"
                 android:textColor="#000000"
                 android:id="@+id/liquorText"
                 android:layout_width="wrap_content"
@@ -115,6 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/liquorButton" />
 
             <TextView
+                android:textStyle="bold"
                 android:textColor="#000000"
                 android:id="@+id/koreanTraditionalText"
                 android:layout_width="wrap_content"
@@ -180,8 +184,8 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="3dp"
                 android:background="@drawable/soju"
                 app:layout_constraintBottom_toBottomOf="@+id/sojuButton"
@@ -191,8 +195,8 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="1dp"
                 app:layout_constraintBottom_toBottomOf="@+id/beerButton"
                 app:layout_constraintEnd_toEndOf="@+id/beerButton"
@@ -202,8 +206,8 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="3dp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/herbal_liquor"
@@ -214,13 +218,23 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 app:layout_constraintBottom_toBottomOf="@+id/koreanTraditionalButton"
                 app:layout_constraintEnd_toEndOf="@+id/koreanTraditionalButton"
                 app:layout_constraintStart_toStartOf="@+id/koreanTraditionalButton"
                 app:layout_constraintTop_toTopOf="@+id/koreanTraditionalButton"
                 app:srcCompat="@drawable/plastic_bottle" />
+
+            <Button
+                android:id="@+id/userMenuButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/dots"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

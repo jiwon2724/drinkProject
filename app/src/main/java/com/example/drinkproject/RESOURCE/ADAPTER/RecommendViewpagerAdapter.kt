@@ -23,7 +23,6 @@ class RecommendViewpagerAdapter(val context : Context, val recommendeList : Arra
     }
 
     override fun getItemCount(): Int {
-        Log.d("item size : ", recommendeList.size.toString())
         return recommendeList.size
     }
 

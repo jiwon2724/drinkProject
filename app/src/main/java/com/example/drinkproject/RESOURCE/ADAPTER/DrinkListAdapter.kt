@@ -51,7 +51,7 @@ class DrinkListAdapter(val context : Context, val list : ArrayList<String>, val 
         val view3 = itemView.findViewById<View>(R.id.view3)
 
         fun bind(){
-            when(adapterPosition%2==1){
+            when(bindingAdapterPosition%2==1){
                 true -> { view3.isInvisible = true }
             }
         }

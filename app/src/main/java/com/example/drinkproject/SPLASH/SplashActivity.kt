@@ -8,18 +8,25 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import com.example.drinkproject.DRINK.DrinkMainActivity
 import com.example.drinkproject.LOGIN.LoginActivity
 import com.example.drinkproject.LOGIN.SignUpActivity
 import com.example.drinkproject.R
+import com.example.drinkproject.RESOURCE.App
+import com.example.drinkproject.RESOURCE.Constant
+import com.example.drinkproject.databinding.ActivitySplashBinding
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivitySplashBinding
+
     private val SPLASH_TIME_OUT: Long = 1500 // 1초
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivitySplashBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
             checkNetwork()
@@ -27,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkNetwork() {
-        stateTextView.text = "네트워크를 확인하고 있습니다."
+        binding.stateTextView.text = "네트워크를 확인하고 있습니다."
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager // 인터넷 연결이 설정되어있는지 확인을 위한 변수 선언
         val networkInfo = cm.activeNetworkInfo // 네트워크 정보를 받을 변수 선언
 
@@ -47,16 +54,21 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkUserInfo() {
-        stateTextView.text = "사용자 정보 확인중.."
+        val intent : Intent
+        binding.stateTextView.text = "사용자 정보 확인중.."
         // todo list
-        /**
-         *
-         * 자동로그인 판별 후 로그인창, 메인 창
-         * 세션으로 값 저장할건지?
-         *
-         * **/
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
+
+        when(App.prefs.getBooleanData(Constant.autoLogin)){
+            true -> {
+                intent = Intent(this, DrinkMainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            false -> {
+                intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 }

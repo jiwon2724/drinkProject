@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
+        android:name=".RESOURCE.App"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -24,12 +25,12 @@
         <activity android:name=".DRINK.DrinkCommentListActivity" />
         <activity android:name=".DRINK.DrinkCommentEditActivity" />
         <activity android:name=".DRINK.DrinkInfoActicity" />
-        <activity android:name=".DRINK.DrinkMainActivity" />
+        <activity android:name=".SPLASH.SplashActivity" />
         <activity android:name=".DRINK.DrinkListActivity" />
         <activity android:name=".LOGIN.LoginActivity" />
         <activity android:name=".LOGIN.SignUpActivity" />
 
-        <activity android:name=".SPLASH.SplashActivity">
+        <activity android:name=".DRINK.DrinkMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

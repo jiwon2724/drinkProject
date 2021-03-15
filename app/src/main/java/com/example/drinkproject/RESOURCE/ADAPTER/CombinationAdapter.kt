@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.drinkproject.R
 import com.example.drinkproject.RESOURCE.LISTCLASS.combination
+import com.example.drinkproject.databinding.BestCombinationRecyclerviewItemsBinding
 
 class CombinationAdapter(val context : Context, val combinationList : ArrayList<combination>) : RecyclerView.Adapter<CombinationAdapter.Holder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CombinationAdapter.Holder {
-        val view = LayoutInflater.from(context).inflate(R.layout.best_combination_recyclerview_items, parent, false)
-        return Holder(view)
+        val binding = BestCombinationRecyclerviewItemsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return Holder(binding)
     }
 
     override fun onBindViewHolder(holder: CombinationAdapter.Holder, position: Int) {
@@ -25,19 +28,19 @@ class CombinationAdapter(val context : Context, val combinationList : ArrayList<
         return combinationList.size
     }
 
-    inner class Holder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val rankingImageView = itemView.findViewById<ImageView>(R.id.rankingImageView)
-        val rankingTextView = itemView.findViewById<TextView>(R.id.rankingTextView)
-        val userIdTextView = itemView.findViewById<TextView>(R.id.userIdTextView)
-        val menuTitleTextView = itemView.findViewById<TextView>(R.id.menuTitleTextView)
-        val menuDescriptionTextView = itemView.findViewById<TextView>(R.id.menuDescriptionTextView)
-        val commentTextView = itemView.findViewById<TextView>(R.id.commentTextView)
-        val thumbsTextView = itemView.findViewById<TextView>(R.id.thumbsTextView)
+    inner class Holder(binding : BestCombinationRecyclerviewItemsBinding) : RecyclerView.ViewHolder(binding.root){
+        val rankingImageView = binding.rankingImageView
+        val rankingTextView = binding.rankingTextView
+        val userIdTextView = binding.helloTextView
+        val menuTitleTextView = binding.menuTitleTextView
+        val menuDescriptionTextView = binding.menuDescriptionTextView
+        val commentTextView = binding.commentTextView
+        val thumbsTextView = binding.thumbsTextView
 
 
         fun bind(combinationList : combination){
             Glide.with(context).load(combinationList.image).into(rankingImageView)
-            // rankingImageView.setImageResource(combinationList.image!!)
+            //rankingImageView.setImageResource(combinationList.image!!)
             rankingTextView.text = combinationList.ranking.toString()
             userIdTextView.text = combinationList.userId.toString()
             menuTitleTextView.text = combinationList.menuTitle.toString()

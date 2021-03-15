@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import com.example.drinkproject.DRINK.DrinkMainActivity
 import com.example.drinkproject.R
+import com.example.drinkproject.RESOURCE.App
 import com.example.drinkproject.RESOURCE.Constant
 import com.example.drinkproject.RESOURCE.DTO.SignDTO
 import com.example.drinkproject.RESOURCE.SERVICE.LoginService
+import com.example.drinkproject.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,6 +20,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivityLoginBinding
+
     val retrofit = Retrofit.Builder()
         .baseUrl(Constant.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -26,27 +30,20 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         /** 회원가입으로 이동 **/
-        signupTextView.setOnClickListener {
+        binding.signupTextView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        loginButton.setOnClickListener {
-            // todo list
-            /**
-             *
-             * 정규식 처리
-             * 일치하지 않았을 때 분기처리
-             *
-             *
-             * **/
-
+        binding.loginButton.setOnClickListener {
             loginApiCall()
         }
     }
+
     fun loginApiCall(){
         val loginUserInfo : HashMap<String, String> = HashMap()
         loginUserInfo.put("userId", idEditTextView.text.toString())
@@ -56,6 +53,9 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<SignDTO>, response: Response<SignDTO>) {
                     when(response.body()!!.httpCode){
                         "200" -> {
+                            App.prefs.putStringData(Constant.userId, idEditTextView.text.toString())
+                            App.prefs.putStringData(Constant.userPass, passwordEditTextView.text.toString())
+                            App.prefs.putBooleanData(Constant.autoLogin, true)
                             val intent = Intent(this@LoginActivity, DrinkMainActivity::class.java)
                             startActivity(intent)
                             finish()

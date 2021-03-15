@@ -22,11 +22,14 @@ import com.example.drinkproject.RESOURCE.LISTCLASS.combination
 import com.example.drinkproject.RESOURCE.LISTCLASS.recommend
 import com.example.drinkproject.RESOURCE.SpannableString
 import com.example.drinkproject.USER.UserInfoActivity
+import com.example.drinkproject.databinding.ActivityDrinkMainBinding
 import kotlinx.android.synthetic.main.activity_drink_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var bidning : ActivityDrinkMainBinding
 
     /** 배너 이미지 리스트 **/
     val bannerImageList = arrayListOf(
@@ -42,10 +45,12 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drink_main)
+        bidning = ActivityDrinkMainBinding.inflate(layoutInflater)
+        setContentView(bidning.root)
+
         init()
 
-        drinkChooseTextView.setOnClickListener {
+        bidning.userMenuButton.setOnClickListener {
             val intent = Intent(this, UserInfoActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.xml.slide_left, R.xml.no_change)
@@ -56,31 +61,28 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
         val screenWidth = resources.displayMetrics.widthPixels
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
-        bannerViewPager.adapter = TopViewpagerAdapter(this, bannerImageList, bannerViewPager)
-        recommendViewPager.adapter = RecommendViewpagerAdapter(this, drinkIamgeList)
+        bidning.bannerViewPager.adapter = TopViewpagerAdapter(this, bannerImageList, bannerViewPager)
+        bidning.recommendViewPager.adapter = RecommendViewpagerAdapter(this, drinkIamgeList)
 
         /** left, right preview **/
-        recommendViewPager.clipToPadding = false
-        recommendViewPager.clipChildren = false
-        recommendViewPager.offscreenPageLimit = 1 // 숫자는 최소 1이상이고 총계가 아닌 좌우 개수
-
-        recommendViewPager.setPageTransformer { page, position ->
-            page.translationX = position * -offsetPx
+        bidning.recommendViewPager.apply {
+            clipToPadding = false
+            clipChildren = false
+            offscreenPageLimit = 1 // 숫자는 최소 1이상이고 총계가 아닌 좌우 개수
+            setPageTransformer { page, position ->
+                page.translationX = position * -offsetPx
+            }
         }
-        val lm = LinearLayoutManager(this)
-        combinationRecyclerView.adapter = CombinationAdapter(this, combinationList)
-        combinationRecyclerView.layoutManager = lm
 
-        /** 인디케이터 아직 미완 **/
-//        indicator.setViewPager(topViewpager)
-//        indicator.createIndicators(imgArrayList.size, 0)
-
-        val headerRunnable = Runnable {
-            bannerViewPager.currentItem = bannerViewPager.currentItem + 1
+        bidning.combinationRecyclerView.apply {
+            adapter = CombinationAdapter(this@DrinkMainActivity, combinationList)
+            layoutManager = LinearLayoutManager(this@DrinkMainActivity)
         }
+
+        val headerRunnable = Runnable { bidning.bannerViewPager.currentItem = bannerViewPager.currentItem + 1 }
 
         /** Viewpager 넘김 처리  **/
-        bannerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        bidning.bannerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 handler.removeCallbacks(headerRunnable)
@@ -90,10 +92,10 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun init(){
-        sojuButton.setOnClickListener(this)
-        beerButton.setOnClickListener(this)
-        liquorButton.setOnClickListener(this)
-        koreanTraditionalButton.setOnClickListener(this)
+        bidning.sojuButton.setOnClickListener(this)
+        bidning.beerButton.setOnClickListener(this)
+        bidning.liquorButton.setOnClickListener(this)
+        bidning.koreanTraditionalButton.setOnClickListener(this)
 
         /** 추천 술 임시 리스트 **/
         drinkIamgeList.add(recommend(R.drawable.stella, "스텔라", 4.9, 5.0, 38472))
@@ -134,19 +136,19 @@ class DrinkMainActivity : AppCompatActivity(), View.OnClickListener {
                 91)
         )
 
-        drinkChooseTextView.text = SpannableString(size = 25, str = drinkChooseTextView.text.toString(), start = 0, end = 3).ssb()
-        drinkRecommendTextView.text = SpannableString(size = 25, str = drinkRecommendTextView.text.toString(), start = 0, end = 5).ssb()
-        drinkRankTextView.text = SpannableString(size = 25, str = drinkRankTextView.text.toString(), start = 0, end = 3).ssb()
+        bidning.drinkChooseTextView.text = SpannableString(size = 25, str = bidning.drinkChooseTextView.text.toString(), start = 0, end = 3).ssb()
+        bidning.drinkRecommendTextView.text = SpannableString(size = 25, str = bidning.drinkRecommendTextView.text.toString(), start = 0, end = 5).ssb()
+        bidning.drinkRankTextView.text = SpannableString(size = 25, str = bidning.drinkRankTextView.text.toString(), start = 0, end = 3).ssb()
 
     }
 
     /** 버튼 클릭 리스너 **/
     override fun onClick(view: View?) {
         when(view){
-            sojuButton -> drinkListIntent("soju")
-            beerButton -> drinkListIntent("beer")
-            liquorButton -> drinkListIntent("liquor")
-            koreanTraditionalButton -> drinkListIntent("makgeolli")
+            bidning.sojuButton -> drinkListIntent("soju")
+            bidning.beerButton -> drinkListIntent("beer")
+            bidning.liquorButton -> drinkListIntent("liquor")
+            bidning.koreanTraditionalButton -> drinkListIntent("makgeolli")
         }
     }
 

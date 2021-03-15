@@ -5,19 +5,22 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drinkproject.R
 import com.example.drinkproject.RESOURCE.ADAPTER.CommentAdapter
+import com.example.drinkproject.databinding.ActivityDrinkCommentListBinding
 import kotlinx.android.synthetic.main.activity_drink_comment_list.*
 
 class DrinkCommentListActivity : AppCompatActivity() {
+
+    lateinit var bidning : ActivityDrinkCommentListBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drink_comment_list)
+        bidning = ActivityDrinkCommentListBinding.inflate(layoutInflater)
+        setContentView(bidning.root)
 
-        goBackButton.setOnClickListener {
-            finish()
-        }
+        bidning.goBackButton.setOnClickListener { finish() }
 
         val testList = arrayListOf<String>("test1", "test2", "test3", "test4", "test5")
-        commentListRecyclerView.layoutManager = LinearLayoutManager(this)
-        commentListRecyclerView.adapter = CommentAdapter(this, testList)
+        bidning.commentListRecyclerView.layoutManager = LinearLayoutManager(this)
+        bidning.commentListRecyclerView.adapter = CommentAdapter(this, testList)
     }
 }
